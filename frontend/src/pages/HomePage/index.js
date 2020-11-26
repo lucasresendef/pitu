@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import { Container, InputGroup, FormControl, Button, Alert, Spinner} from 'react-bootstrap';
 import { ContentContainer, Form, AdsBlock } from './styles';
 import ShortenerService from '../../services/ShortenerService';
+import vars from '../../configs/vars';
  
 class HomePage extends React.Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class HomePage extends React.Component {
                                  <InputGroup className="mb-3">
                                     <FormControl
                                         autoFocus={true}
-                                        defaultValue={`https://pitu.tk/${code}`}
+                                        defaultValue={vars.HOST_APP + code}
                                         onChange={e => this.setState({ url: e.target.value })}
                                         ref={(input) => this.inputURL = input}
                                     />
@@ -80,7 +81,7 @@ class HomePage extends React.Component {
                                     <Button variant="outline-secondary" onClick={() => this.copyToClipboard()}>Copiar</Button>
                                     </InputGroup.Append>
                                      </InputGroup>
-                                    <p>Para acompanhar as estatísticas, acesse https://pitu.tk/{code}</p>
+                                    <p>Para acompanhar as estatísticas, acesse { vars.HOST_APP + code }/stats</p>
                                 </>
                             )
                         )}
